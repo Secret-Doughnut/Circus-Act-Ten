@@ -3,10 +3,15 @@ public static class Divisors {
     /// Entry point for the Divisors class
     /// </summary>
     public static void Run() {
-        List<int> list = FindDivisors(80);
-        Console.WriteLine("<List>{" + string.Join(", ", list) + "}"); // <List>{1, 2, 4, 5, 8, 10, 16, 20, 40}
-        List<int> list1 = FindDivisors(79);
-        Console.WriteLine("<List>{" + string.Join(", ", list1) + "}"); // <List>{1}
+        List<int> list = FindDivisors(79);
+        // Console.WriteLine("<List>{" + string.Join(", ", list) + "}"); //<List>{1, 2, 4, 5, 8, 10, 16, 20, 40}
+        List<int> list1 = FindDivisors(80);
+        // Console.WriteLine("<List>{" + string.Join(", ", list1) + "}"); // <List>{1}
+
+        foreach (int number in list1)
+        {
+            Console.WriteLine(number);
+        }
     }
 
     /// <summary>
@@ -18,7 +23,20 @@ public static class Divisors {
     /// <returns>List of divisors</returns>
     private static List<int> FindDivisors(int number) {
         List<int> results = new();
-        // TODO problem 1
+        int Counter = 1;
+
+        while (Counter != number)
+        {
+            float Test = (float)number / Counter;
+            
+            if (Test % 1 == 0)
+            {
+                results.Add(Counter);
+            }
+
+            Counter += 1;
+        }
+        
         return results;
     }
 }
