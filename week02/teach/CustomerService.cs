@@ -1,4 +1,6 @@
-﻿/// <summary>
+﻿using System.Diagnostics.Metrics;
+
+/// <summary>
 /// Maintain a Customer Service Queue.  Allows new customers to be 
 /// added and allows customers to be serviced.
 /// </summary>
@@ -11,9 +13,32 @@ public class CustomerService {
         // Test Cases
 
         // Test 1
-        // Scenario: 
+        // Scenario: The user tries to set the queue length to 0.
+        // This then test adding four customers and serving those 
+        // customers.
         // Expected Result: 
         Console.WriteLine("Test 1");
+
+        //var Helper = AddNewPerson();
+        var service = new CustomerService(4);
+
+        List<string> Test_List = new();
+        List<Customer> Expected_Results = new List<Customer> { };
+        List<Customer> List_Of_Customers = new List<Customer>();
+        
+        
+        var Customer1 = new Customer("Billy", "43212", "Pizza Cold");
+        var Customer2 = new Customer("Sarah", "12345", "Already Open Socks");
+        var Customer3 = new Customer("Lasa", "10203", "Thing is broken");
+        var Customer4 = new Customer("Mario", "21234", "No MUSHROOMS?!");
+
+        service.AddNewCustomer();
+
+        List_Of_Customers.Add(Customer1);
+        List_Of_Customers.Add(Customer2);
+        List_Of_Customers.Add(Customer3);
+        List_Of_Customers.Add(Customer4);
+
 
         // Defect(s) Found: 
 
