@@ -25,6 +25,17 @@
     private static int CountDuplicates(int[] data)
     {
         // Add code here.
-        return 0;
+        List<int> Counting_List = new List<int>();
+
+        var answer = data.Intersect(data).ToHashSet();
+
+        foreach (int item in answer)
+        {
+            Counting_List.Add(item);
+        }
+
+        int Length = Counting_List.Count;
+        
+        return Length;
     }
 }
