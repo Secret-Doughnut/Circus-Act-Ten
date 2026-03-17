@@ -14,6 +14,30 @@ public class CopyChecker
     
     public static void DuplicateChecker(List<string> strings)
     {
+
+        var table = new HashSet<string>();
+        string Answer = "";
+
+        foreach (var letter in strings)
+        {
+            // Check if the letter exists in the hashset.
+            // If not add it, otherwise, return the current letter.
+
+            if (table.Contains(letter))
+            {
+                Answer = letter;
+                break;
+            }
+            else
+            {
+                table.Add(letter);
+            }
+        }
+
+        Console.WriteLine("There is a duplicate letter here!");
+        Console.WriteLine($"The letter is: {Answer}!");
+
+        
         // var Answer = "";
 
         // Dictionary<string, string> Helper_Dictionary = new Dictionary<string, string>();
