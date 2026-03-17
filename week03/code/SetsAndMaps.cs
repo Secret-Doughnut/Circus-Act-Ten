@@ -23,20 +23,14 @@ public static class SetsAndMaps
     {
         // TODO Problem 1 - ADD YOUR CODE HERE
 
-        // Declare two string variables. We'll use them later on.
         char Letter1 = new char();
         char Letter2 = new char();
 
-        // Declare two string variable for two letter words.
         string Word1 = "";
         string Word2 = "";
 
-
-        // Transfer the array into a hashset.
         HashSet<string> strings = new HashSet<string>();
 
-        // Have a list to hold the pairs of words once
-        // they are created.
         List<string> Word_Pairs = new List<string>();
 
         foreach (string item in words)
@@ -59,33 +53,6 @@ public static class SetsAndMaps
                 // to format the words.
             }
         }
-
-
-
-
-
-        // Grab the first item and split up the letters.
-        // Put each of them into their own variable.
-        // Place the first two letter word into one
-        // of the variables created earlier.
-        // Then go through every item in the hashset and
-        // ask if the second letter in the first word
-        // match with the first letter of the other words.
-        // If they match, then ask if the first letter
-        // of the first word matches the second letter
-        // of the second word.
-        // (If the first word's letters were "a" and "t",
-        // asking if the second word's letters are "t"
-        // and "a" in that order)
-        // If the two letters match each other, then place
-        // the second word into one of the variables.
-
-
-        // Send the two words to a helper function to join
-        // them together in this format: "Word1 & Word2".
-
-
-        // 
 
         return [];
     }
