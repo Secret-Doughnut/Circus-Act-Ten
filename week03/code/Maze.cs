@@ -1,3 +1,5 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 /// <summary>
 /// Defines a maze using a dictionary. The dictionary is provided by the
 /// user when the Maze object is created. The dictionary will contain the
@@ -33,6 +35,31 @@ public class Maze
     public void MoveLeft()
     {
         // FILL IN CODE
+        var compare = _mazeMap[(_currX, _currY)];
+
+        if (_currX <= 1)
+        {
+            _currX -= 1;
+
+            if (compare[_currY] == true && compare[_currX] == true)
+            {
+                throw new InvalidOperationException("Can't go that way!");
+            }
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that waay!");
+        }
+
+
+        // if (_currX > 1)
+        // {
+        //     _currX -= 1;
+        // }
+        // else
+        // {
+        //     throw new InvalidOperationException("Can't go that way!");
+        // }
     }
 
     /// <summary>
@@ -42,6 +69,21 @@ public class Maze
     public void MoveRight()
     {
         // FILL IN CODE
+        var compare = _mazeMap[(_currX, _currY)];
+
+        if (_currX >= 6)
+        {
+            _currX += 1;
+
+            if (compare[_currY] == true && compare[_currX] == true)
+            {
+                throw new InvalidOperationException("Can't go that way!");
+            }
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that waay!");
+        }
     }
 
     /// <summary>
@@ -51,6 +93,22 @@ public class Maze
     public void MoveUp()
     {
         // FILL IN CODE
+        var compare = _mazeMap[(_currX, _currY)];
+
+        if (_currY <= 1)
+        {
+            _currY -= 1;
+            
+            if (compare[_currY] == true && compare[_currX] == true)
+            {
+                throw new InvalidOperationException("Can't go that way!");
+            }
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that waay!");
+        }
+
     }
 
     /// <summary>
@@ -60,6 +118,21 @@ public class Maze
     public void MoveDown()
     {
         // FILL IN CODE
+        var compare = _mazeMap[(_currX, _currY)];
+
+        if (_currY >= 6)
+        {
+            _currY += 1;
+
+            if (compare[_currY] == true && compare[_currX] == true)
+            {
+                throw new InvalidOperationException("Can't go that way!");
+            }
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that waay!");
+        }
     }
 
     public string GetStatus()

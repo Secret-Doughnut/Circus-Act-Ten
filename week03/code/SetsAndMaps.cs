@@ -107,37 +107,56 @@ public static class SetsAndMaps
     {
         // TODO Problem 3 - ADD YOUR CODE HERE
 
-
         Dictionary<char, int> Holder1 = new();
         Dictionary<char, int> Holder2 = new();
         bool Test = false;
 
         foreach (char letter1 in word1)
         {
-            if (!Holder1.ContainsKey(letter1))
+            char lower_case_letter1 = char.ToLower(letter1);
+            
+            if (lower_case_letter1 != ' ')
             {
-                Holder1[letter1] = 1;
-            }
-            else
-            {
-                Holder1[letter1] += 1;
+                if (!Holder1.ContainsKey(lower_case_letter1))
+                {
+                    Holder1[lower_case_letter1] = 1;
+                }
+                else
+                {
+                    Holder1[lower_case_letter1] += 1;
+                }
             }
         }
 
         foreach (char letter2 in word2)
         {
-            if (!Holder2.ContainsKey(letter2))
+            char lower_case_letter2 = char.ToLower(letter2);
+
+            if (lower_case_letter2 != ' ')
             {
-                Holder2[letter2] = 1;
-            }
-            else
-            {
-                Holder2[letter2] += 1;
+                if (!Holder2.ContainsKey(lower_case_letter2))
+                {
+                    Holder2[lower_case_letter2] = 1;
+                }
+                else
+                {
+                    Holder2[lower_case_letter2] += 1;
+                }
             }
         }
 
         foreach (var item in Holder1)
         {
+            if (Holder2.ContainsKey(item.Key) && Holder2[item.Key] == item.Value)
+            {
+                Test = true;
+            }
+            else
+            {
+                Test = false;
+                break;
+            }
+            
             // var Check = Holder2.ContainsKey(item.Key);
             
             // if (Check)
@@ -153,6 +172,21 @@ public static class SetsAndMaps
             //     Test = false;
             //     break;
             // }
+            
+            // if (!Holder2.ContainsKey(item.Key))
+            // {
+            //     Test = false;
+            //     break;
+            // }
+            // else
+            // {
+            //     if (Holder2.ContainsValue(item.Value))
+            //     {
+            //         Test = true;
+            //     }
+            // }
+            
+            
         }
 
         return Test;
