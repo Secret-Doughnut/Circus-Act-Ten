@@ -22,16 +22,13 @@ public static class SetsAndMaps
     public static string[] FindPairs(string[] words)
     {
         // TODO Problem 1 - ADD YOUR CODE HERE
+        // This technically functions, but is bad.
+        // And I have no idea how to fix it.
 
-        char Letter1 = new char();
-        char Letter2 = new char();
-
-        string Word1 = "";
         string Word2 = "";
 
         HashSet<string> strings = new HashSet<string>();
-
-        List<string> Word_Pairs = new List<string>();
+        HashSet<string> Word_Pairs = new HashSet<string>();
 
         foreach (string item in words)
         {
@@ -41,20 +38,21 @@ public static class SetsAndMaps
 
         foreach (var item in strings)
         {
-            Word1 = item;
             char[] chars = item.ToCharArray();
             chars.Reverse();
             string Word_To_Compare = new string(chars);
-            
+
             if (strings.Contains(Word_To_Compare))
             {
                 Word2 = Word_To_Compare;
-                // Send both words to a helper function
-                // to format the words.
+                string Answer = $"{item} & {Word2}";
+                Word_Pairs.Add(Answer);
             }
         }
 
-        return [];
+        string[] Results = Word_Pairs.ToArray();
+
+        return Results;
     }
 
     /// <summary>
@@ -75,6 +73,15 @@ public static class SetsAndMaps
         {
             var fields = line.Split(",");
             // TODO Problem 2 - ADD YOUR CODE HERE
+
+            if (!degrees.ContainsKey(fields[3]))
+            {
+                degrees[fields[3]] = 1;
+            }
+            else
+            {
+                degrees[fields[3]] += 1;
+            }
         }
 
         return degrees;
@@ -99,7 +106,56 @@ public static class SetsAndMaps
     public static bool IsAnagram(string word1, string word2)
     {
         // TODO Problem 3 - ADD YOUR CODE HERE
-        return false;
+
+
+        Dictionary<char, int> Holder1 = new();
+        Dictionary<char, int> Holder2 = new();
+        bool Test = false;
+
+        foreach (char letter1 in word1)
+        {
+            if (!Holder1.ContainsKey(letter1))
+            {
+                Holder1[letter1] = 1;
+            }
+            else
+            {
+                Holder1[letter1] += 1;
+            }
+        }
+
+        foreach (char letter2 in word2)
+        {
+            if (!Holder2.ContainsKey(letter2))
+            {
+                Holder2[letter2] = 1;
+            }
+            else
+            {
+                Holder2[letter2] += 1;
+            }
+        }
+
+        foreach (var item in Holder1)
+        {
+            // var Check = Holder2.ContainsKey(item.Key);
+            
+            // if (Check)
+            // {
+            //     if (Check == item.Value)
+            //     {
+            //         Test = true;
+                    
+            //     }
+            // }
+            // else
+            // {
+            //     Test = false;
+            //     break;
+            // }
+        }
+
+        return Test;
     }
 
     /// <summary>
