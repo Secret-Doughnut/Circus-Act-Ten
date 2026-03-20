@@ -22,35 +22,24 @@ public static class SetsAndMaps
     public static string[] FindPairs(string[] words)
     {
         // TODO Problem 1 - ADD YOUR CODE HERE
-        // This technically functions, but is bad.
-        // And I have no idea how to fix it.
+        HashSet<string> Strings = new();
+        HashSet<string> Pairs = new();
 
-        string Word2 = "";
-
-        HashSet<string> strings = new HashSet<string>();
-        HashSet<string> Word_Pairs = new HashSet<string>();
-
-        foreach (string item in words)
+        foreach (var item in words)
         {
-            strings.Add(item);
-        }
+            string Word_To_Compare = $"{item[1]}{item[0]}";
 
-
-        foreach (var item in strings)
-        {
-            char[] chars = item.ToCharArray();
-            chars.Reverse();
-            string Word_To_Compare = new string(chars);
-
-            if (strings.Contains(Word_To_Compare))
+            if (Strings.Contains(Word_To_Compare))
             {
-                Word2 = Word_To_Compare;
-                string Answer = $"{item} & {Word2}";
-                Word_Pairs.Add(Answer);
+                Pairs.Add($"{Word_To_Compare} & {item}");
+            }
+            else
+            {
+                Strings.Add(item);
             }
         }
 
-        string[] Results = Word_Pairs.ToArray();
+        var Results = Pairs.ToArray();
 
         return Results;
     }
