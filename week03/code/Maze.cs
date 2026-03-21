@@ -35,31 +35,24 @@ public class Maze
     public void MoveLeft()
     {
         // FILL IN CODE
-        var compare = _mazeMap[(_currX, _currY)];
-
-        if (_currX <= 1)
+        if (_currX != 1)
         {
-            _currX -= 1;
+            var compare = _mazeMap[(_currX, _currY)];
 
-            if (compare[_currY] == true && compare[_currX] == true)
+            if (compare[0] == true)
+            {
+                _currX -= 1;
+            }
+            else
             {
                 throw new InvalidOperationException("Can't go that way!");
             }
         }
         else
         {
-            throw new InvalidOperationException("Can't go that waay!");
+            throw new InvalidOperationException("Can't go that way!");
         }
 
-
-        // if (_currX > 1)
-        // {
-        //     _currX -= 1;
-        // }
-        // else
-        // {
-        //     throw new InvalidOperationException("Can't go that way!");
-        // }
     }
 
     /// <summary>
@@ -69,20 +62,26 @@ public class Maze
     public void MoveRight()
     {
         // FILL IN CODE
-        var compare = _mazeMap[(_currX, _currY)];
+        var All_Squares = _mazeMap.Count;
+        double Square_Root = Math.Sqrt(All_Squares);
+        int Answer = Convert.ToInt32(Square_Root);
 
-        if (_currX >= 6)
+        if (_currX != Answer)
         {
-            _currX += 1;
+            var compare = _mazeMap[(_currX, _currY)];
 
-            if (compare[_currY] == true && compare[_currX] == true)
+            if (compare[1] == true)
+            {
+                _currX += 1;
+            }
+            else
             {
                 throw new InvalidOperationException("Can't go that way!");
             }
         }
         else
         {
-            throw new InvalidOperationException("Can't go that waay!");
+            throw new InvalidOperationException("Can't go that way!");
         }
     }
 
@@ -93,22 +92,23 @@ public class Maze
     public void MoveUp()
     {
         // FILL IN CODE
-        var compare = _mazeMap[(_currX, _currY)];
-
-        if (_currY <= 1)
+        if (_currY != 1)
         {
-            _currY -= 1;
-            
-            if (compare[_currY] == true && compare[_currX] == true)
+            var compare = _mazeMap[(_currX, _currY)];
+
+            if (compare[2] == true)
+            {
+                _currY -= 1;
+            }
+            else
             {
                 throw new InvalidOperationException("Can't go that way!");
             }
         }
         else
         {
-            throw new InvalidOperationException("Can't go that waay!");
+            throw new InvalidOperationException("Can't go that way!");
         }
-
     }
 
     /// <summary>
@@ -118,20 +118,26 @@ public class Maze
     public void MoveDown()
     {
         // FILL IN CODE
-        var compare = _mazeMap[(_currX, _currY)];
+        var All_Squares = _mazeMap.Count;
+        double Square_Root = Math.Sqrt(All_Squares);
+        int Answer = Convert.ToInt32(Square_Root);
 
-        if (_currY >= 6)
+        if (_currY != Answer)
         {
-            _currY += 1;
+            var compare = _mazeMap[(_currX, _currY)];
 
-            if (compare[_currY] == true && compare[_currX] == true)
+            if (compare[3] == true)
+            {
+                _currY += 1;
+            }
+            else
             {
                 throw new InvalidOperationException("Can't go that way!");
             }
         }
         else
         {
-            throw new InvalidOperationException("Can't go that waay!");
+            throw new InvalidOperationException("Can't go that way!");
         }
     }
 
