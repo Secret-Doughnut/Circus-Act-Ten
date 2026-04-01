@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics.Metrics;
 
 public static class Recursion
 {
@@ -15,7 +16,15 @@ public static class Recursion
     public static int SumSquaresRecursive(int n)
     {
         // TODO Start Problem 1
-        return 0;
+
+        if (n <= 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return n * n + SumSquaresRecursive(n - 1);
+        }
     }
 
     /// <summary>
@@ -40,6 +49,20 @@ public static class Recursion
     public static void PermutationsChoose(List<string> results, string letters, int size, string word = "")
     {
         // TODO Start Problem 2
+        if (size <= 0)
+        {
+            results.Add(word);
+            return;
+        }
+        else
+        {
+            for (var i = 0; i < letters.Length; i++)
+            {
+                var LettersLeft = letters.Remove(i, 1);
+
+                PermutationsChoose(results, LettersLeft, size - 1, word + letters[i]);
+            }
+        }
     }
 
     /// <summary>
@@ -97,10 +120,27 @@ public static class Recursion
             return 4;
 
         // TODO Start Problem 3
+        if (remember == null)
+        {
+            remember = new Dictionary<int, decimal>();
+        }
 
         // Solve using recursion
-        decimal ways = CountWaysToClimb(s - 1) + CountWaysToClimb(s - 2) + CountWaysToClimb(s - 3);
-        return ways;
+        
+        if (remember != null)
+        {
+            remember.Add(remember.Count + 1, s);
+
+            decimal ways = CountWaysToClimb(s - 1, remember) + CountWaysToClimb(s - 2, remember) + CountWaysToClimb(s - 3, remember);
+
+        }
+        
+
+
+        
+        return remember!.Count;
+
+
     }
 
     /// <summary>
