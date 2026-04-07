@@ -80,35 +80,42 @@ public class Node
         int Left_Side = 0;
         int Right_Side = 0;
 
+
         if (Left is not null)
         {
-            Left_Side += 1;
-            Left.GetHeight();
-            return Left_Side;
+            Left_Side += Left.GetHeight();
         }
-
 
         if (Right is not null)
         {
-            Right_Side += 1;
-            Right.GetHeight();
-            return Right_Side;
-        }
-        else
-        {
-            if (Left_Side <= Right_Side)
-            {
-                Number = Right_Side + 1;
-            }
-            else if (Right_Side >= Left_Side)
-            {
-                Number = Left_Side + 1;
-            }
+            Right_Side += Right.GetHeight();
 
-            return Number;
+            Number = Math.Max(Left_Side, Right_Side);
         }
+
+        // if (Right is not null)
+        // {
+        //     Right_Side = Right.GetHeight();
+        //     return Right_Side += 1;
+        // }
+
+        // if (Left_Side != 0 || Right_Side != 0)
+        // {
+        //     if (Left_Side > Right_Side || Right_Side == Left_Side)
+        //     {
+        //         Number = Left_Side;
+        //         return Number;
+        //     }
+        //     else if (Right_Side > Left_Side)
+        //     {
+        //         Number = Right_Side;
+        //         return Number;
+        //     }
+
+        // }
+
 
         // Replace this line with the correct return statement(s)
-        //return 0;
+        return Number + 1;
     }
 }
