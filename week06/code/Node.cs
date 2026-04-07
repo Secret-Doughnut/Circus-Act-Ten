@@ -76,6 +76,32 @@ public class Node
     public int GetHeight()
     {
         // TODO Start Problem 4
-        return 0; // Replace this line with the correct return statement(s)
+        int Number = 0;
+        int Left_Side = 1;
+        int Right_Side = 1;
+
+        if (Left is not null)
+        {
+            Left_Side += GetHeight();
+            return 1;
+        }
+
+        if (Right is not null)
+        {
+            Right_Side += GetHeight();
+            return 1;
+        }
+
+        if (Left_Side <= Right_Side)
+        {
+            Number = Right_Side - 1;
+        }
+        else if (Right_Side >= Left_Side)
+        {
+            Number = Left_Side - 1;
+        }
+
+        
+        return Number; // Replace this line with the correct return statement(s)
     }
 }
